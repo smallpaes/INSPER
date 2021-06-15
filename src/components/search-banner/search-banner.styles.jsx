@@ -12,6 +12,11 @@ export const BannerContainer = styled.div`
   height: 200px;
   overflow: hidden;
 
+  video {
+    position: absolute;
+    z-index: -1;
+  }
+
   @media screen and (min-width: 768px) {
     height: 300px;
   }
@@ -19,14 +24,6 @@ export const BannerContainer = styled.div`
   @media screen and (min-width: 1441px) {
     height: 400px;
   }
-`;
-
-export const VideoContainer = styled.video`
-  position: absolute;
-  width: 100%;
-  height: auto;
-  z-index: -1;
-  filter: ${({ isCanPlay }) => isCanPlay ? 'unset' : 'blur(4px)'}
 `;
 
 export const TitleContainer = styled.h2`
