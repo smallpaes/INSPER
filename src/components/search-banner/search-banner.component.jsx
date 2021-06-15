@@ -18,8 +18,9 @@ const SearchBanner = () => {
   const [isCanPlay, setIsCanPlay] = useState(false);
 
   useEffect(() => {
+    const videoSrc = 'https://player.vimeo.com/external/521018011.hd.mp4?s=0d75d0cddf424b1d16c574c80b68785342d3b5ba&profile_id=170&oauth2_token_id=57447761'
     videoEl.current.poster = paintPoster
-    videoEl.current.src = "https://player.vimeo.com/external/521018011.hd.mp4?s=0d75d0cddf424b1d16c574c80b68785342d3b5ba&profile_id=170&oauth2_token_id=57447761";
+    videoEl.current.src = videoSrc;
   }, []);
 
   const handleOnCanPlay = () => {
@@ -42,12 +43,12 @@ const SearchBanner = () => {
       </TitleContainer>
       <FormContainer>
         <InputContainer 
-          type="text" 
-          name="create-category" 
-          placeholder="Create new category"
+          type='text'
+          name='create-category'
+          placeholder='Create new category'
         />
         <CustomButton
-          type="submit"
+          type='submit'
           isPureButton
         >
           <AddIcon />
