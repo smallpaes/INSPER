@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     // background
     --theme-bg-primary: #F6F6F6;
     --theme-bg-secondary: #FFFFFF;
+    --theme-bg-tertiary: #000000;
 
     // text color
     --theme-text-dark-rgb: 0, 0, 0;
@@ -34,6 +35,12 @@ export const GlobalStyle = createGlobalStyle`
     --theme-font-size-small: .875rem;
     --theme-font-size-x-small: .75rem;
     --theme-font-size-xx-small: .625rem;
+
+    // border-radius
+    --theme-border-radius-base: 6px;
+    --theme-border-radius-small: 2px;
+    --theme-border-radius-large: 10px;
+    --theme-border-radius-x-large: 14px;
 
     // header
     --header-height: 50px;
@@ -67,6 +74,10 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: unset;
+  }
+
+  p {
+    margin: 0;
   }
 
   input {
