@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../../assets/icons/lightbulb.svg';
 
@@ -14,7 +15,7 @@ export const HeaderContainer = styled.header`
   z-index: 1;
 `;
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled(Link)`
   display: flex;
   user-select: none;
 `;

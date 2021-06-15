@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <LogoContainer>
+      <LogoContainer to='/'>
         <LogoIcon />
         <LogoTitleContainer>
           INSPER
