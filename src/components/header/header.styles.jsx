@@ -11,6 +11,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   padding: 0 15px;
   background: var(--theme-bg-secondary);
+  z-index: 1;
 `;
 
 export const LogoContainer = styled.div`

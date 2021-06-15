@@ -68,4 +68,17 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: unset;
   }
+
+  input {
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: var(--theme-text-dark-200);
+    }
+  }
+
+  button {
+    padding: 0;
+  }
 `;
