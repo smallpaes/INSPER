@@ -35,9 +35,10 @@ const Trending = () => {
             <ImageCard
               className='column'
               key={image.id}
-              imageSrc={image.src.original}
+              imageSrc={image.src.large2x}
               photographer={image.photographer}
               photographerUrl={image.photographer_url}
+              placeholderColor={image.avg_color}
             />
           ))
         }

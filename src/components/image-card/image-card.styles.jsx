@@ -12,6 +12,7 @@ export const CardContainer = styled.div`
   width: 100%;
   overflow: hidden;
   box-shadow: var(--theme-box-shadow-s);
+  background-color: ${({ placeholderColor }) => placeholderColor};
 
   &:hover {
     div {

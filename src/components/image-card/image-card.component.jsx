@@ -18,10 +18,12 @@ const ImageCard = ({
     photographerUrl,
     isFixedHeight,
     height,
+    placeholderColor,
     ...otherProps
  }) => (
   <CardContainer
-    fixedHeight={isFixedHeight} 
+    fixedHeight={isFixedHeight}
+    placeholderColor={placeholderColor}
     {...otherProps}
   >
     <ImageContainer
