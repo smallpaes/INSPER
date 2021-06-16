@@ -7,7 +7,7 @@ export const TrendingContainer = styled.section`
 export const TitleContainer = styled.h3`
   margin-bottom: 10px;
   text-transform: uppercase;
-  color: var(--theme-text-dark-700);
+  color: var(--theme-color-dark-700);
   text-align: center;
 
   @media screen and (min-width: 768px) {

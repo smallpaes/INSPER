@@ -15,10 +15,10 @@ const outlineStyles = css`
   ${generalStyles}
   background-color: transparent;
   border-radius: var(--theme-border-radius-small);
-  border: 1px solid var(--theme-text-dark-700);
+  border: 1px solid var(--theme-color-dark-700);
 
   &:hover {
-    background-color: var(--theme-text-dark-700);
+    background-color: var(--theme-color-dark-700);
     border-color: transparent;
     color: var(--theme-bg-secondary);
   }

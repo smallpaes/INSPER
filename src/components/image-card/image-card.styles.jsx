@@ -55,7 +55,7 @@ export const AvatarContainer = styled(Bear)`
 `;
 
 export const DescriptionContainer = styled.p`
-  color: var(--theme-text-white);
+  color: var(--theme-color-white);
   font-size: var(--theme-font-size-x-small);
   margin-left: 5px;
 `;
@@ -70,7 +70,7 @@ export const ActionsContainer = styled.div`
 const ActionIconStyles = css`
   width: 18px;
   height: auto;
-  fill: var(--theme-text-white);
+  fill: var(--theme-color-white);
   cursor: pointer;
 `;
 

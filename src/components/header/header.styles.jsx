@@ -26,7 +26,7 @@ export const LogoIcon = styled(Logo)`
 
 export const LogoTitleContainer = styled.h3`
   margin-left: 5px;
-  color: var(--theme-text-dark-900);
+  color: var(--theme-color-dark-900);
 `;
 
 export const NavIconsContainer = styled.nav`
@@ -40,7 +40,7 @@ export const NavIconsContainer = styled.nav`
   svg {
     width: 100%;
     height: 100%;
-    fill: var(--theme-text-black-500);
+    fill: var(--theme-color-black-500);
     cursor: pointer;
   }
 
@@ -62,8 +62,8 @@ export const NavContainer = styled.nav`
 
   a {
     padding: 10px 0;
-    border-bottom: 1px solid var(--theme-text-dark-100);
-    color: var(--theme-text-dark-500);
+    border-bottom: 1px solid var(--theme-color-dark-100);
+    color: var(--theme-color-dark-500);
     font-size: var(--theme-font-size-x-small);
     text-transform: uppercase;
   }
@@ -78,7 +78,7 @@ export const NavContainer = styled.nav`
     a { 
       padding: 0;
       border-bottom: none;
-      color: var(--theme-text-dark-500);
+      color: var(--theme-color-dark-500);
       font-size: var(--theme-font-size-small);
     }
   }

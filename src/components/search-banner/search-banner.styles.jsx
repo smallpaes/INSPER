@@ -27,7 +27,7 @@ export const BannerContainer = styled.div`
 `;
 
 export const TitleContainer = styled.h2`
-  color: var(--theme-text-white);
+  color: var(--theme-color-white);
   text-transform: uppercase;
 
   @media screen and (min-width: 768px) {
@@ -59,7 +59,7 @@ export const InputContainer = styled.input`
   height: 100%;
   border: none;
   font-size: var(--theme-font-size-base);
-  color: var(--theme-text-dark-500);
+  color: var(--theme-color-dark-500);
 
   @media screen and (min-width: 768px) {
     font-size: var(--theme-font-size-large);
@@ -69,6 +69,6 @@ export const InputContainer = styled.input`
 export const AddIcon = styled(Add)`
   width: 100%;
   height: auto;
-  fill: var(--theme-text-dark-200);
+  fill: var(--theme-color-dark-200);
   cursor: pointer;
 `;
