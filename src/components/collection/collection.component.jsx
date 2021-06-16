@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import CustomColumns from '../custom-columns/custom-columns.components';
 import ImageCard from '../image-card/image-card.component';
+import CustomButton from '../custom-button/custom-button.component';
 
 import {
   CollectionContainer,
@@ -43,6 +44,9 @@ const Collection = () => {
           ))
         }
       </CustomColumns>
+      <CustomButton isOutlineButton>
+        Find Out More
+      </CustomButton>
     </CollectionContainer>
   );
 };

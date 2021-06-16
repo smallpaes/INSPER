@@ -2,6 +2,12 @@ import styled from 'styled-components';
 
 export const CollectionContainer = styled.section`
   margin-top: 2rem;
+  div { margin-bottom: .5rem; }
+  button { margin: 0 auto; }
+
+  @media screen and (min-width: 768px) {
+    button { min-width: 360px; }
+  }
 `;
 
 export const TitleContainer = styled.h3`
