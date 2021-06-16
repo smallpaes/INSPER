@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import CustomColumns from '../columns/custom-columns/custom-columns.components';
+import CustomColumns from '../custom-columns/custom-columns.components';
 import ImageCard from '../image-card/image-card.component';
 
 import {
