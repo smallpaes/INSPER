@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SearchBanner from '../../components/search-banner/search-banner.component';
+import Collection from '../../components/collection/collection.component';
 import Trending from '../../components/trending/trending.component';
 
 import { CollectionsContainer } from './homepage.styles';
@@ -10,6 +11,7 @@ const Homepage = () => {
     <div className="homepage">
       <SearchBanner />
       <CollectionsContainer>
+        <Collection />
         <Trending />
       </CollectionsContainer>
     </div>

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-import CustomColumns from  '../columns/custom-columns/custom-columns.components';
+import CustomColumns from '../columns/custom-columns/custom-columns.components';
 import ImageCard from '../image-card/image-card.component';
 
 import {
-  TrendingContainer,
+  CollectionContainer,
   TitleContainer
-} from './trending.styles';
+} from './collection.styles';
 
-const Trending = () => {
+const Collection = () => {
   const [images, setImages] = useState([])
   const [page, setPage] = useState(0)
 
@@ -25,17 +25,17 @@ const Trending = () => {
         setImages(data.photos)
       })
   }, [])
-  
+
   return (
-    <TrendingContainer>
-      <TitleContainer>Trending</TitleContainer>
-      <CustomColumns isMasonry>
+    <CollectionContainer>
+      <TitleContainer>Nature</TitleContainer>
+      <CustomColumns isGrid>
         {
           images.map(image => (
             <ImageCard
               className='column'
               key={image.id}
-              imageSrc={image.src.large2x}
+              imageSrc={image.src.landscape}
               photographer={image.photographer}
               photographerUrl={image.photographer_url}
               placeholderColor={image.avg_color}
@@ -43,8 +43,8 @@ const Trending = () => {
           ))
         }
       </CustomColumns>
-    </TrendingContainer>
+    </CollectionContainer>
   );
 };
 
-export default Trending;
+export default Collection;

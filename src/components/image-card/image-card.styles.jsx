@@ -11,7 +11,7 @@ export const CardContainer = styled.div`
   border-radius: var(--theme-border-radius-base);
   width: 100%;
   overflow: hidden;
-  box-shadow: var(--theme-box-shadow-s);
+  box-shadow: var(--theme-box-shadow-h);
   background-color: ${({ placeholderColor }) => placeholderColor};
 
   &:hover {
