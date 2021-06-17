@@ -13,6 +13,7 @@ const Trending = () => {
   const [images, setImages] = useState([])
   const [page, setPage] = useState(0);
 
+  // Observer relies on reference equality to prevent unnecessary renders
   const onIntersecting = useCallback(() => {
     setPage(page => page + 1);
   }, []);
