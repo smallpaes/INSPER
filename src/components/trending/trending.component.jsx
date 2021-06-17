@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import CustomColumns from '../custom-columns/custom-columns.components';
 import ImageCard from '../image-card/image-card.component';
-
-import useIntersectionObserver from '../../effects/use-intersection-observer.effect';
+import Observer from '../observer/observer-component';
 
 import {
   TrendingContainer,
@@ -13,20 +12,10 @@ import {
 const Trending = () => {
   const [images, setImages] = useState([])
   const [page, setPage] = useState(0);
-  const observedTargetRef = useRef(null);
-  
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0
-  };
 
-  const isIntersecting = useIntersectionObserver(observedTargetRef, observerOptions);
-
-  useEffect(() => {
-    if (!isIntersecting) return;
-    setPage(prevPage => prevPage + 1);
-  }, [isIntersecting]);
+  const onIntersecting = useCallback(() => {
+    setPage(page => page + 1);
+  }, []);
 
   useEffect(() => {
     if (page === 0) return;
@@ -59,7 +48,10 @@ const Trending = () => {
           ))
         }
       </CustomColumns>
-      <div className="observer" style={{ 'height': '300px' }} ref={observedTargetRef} />
+      <Observer
+        rootMargin='400px'
+        onIntersecting={onIntersecting}
+      >Loading</Observer>
     </TrendingContainer>
   );
 };
