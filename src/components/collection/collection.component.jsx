@@ -14,7 +14,7 @@ const Collection = () => {
   const [page, setPage] = useState(0)
 
   useEffect(() => {
-    fetch('https://api.pexels.com/v1/curated?page=1&per_page=6', {
+    fetch('https://api.pexels.com/v1/search?query=nature', {
       method: 'Get',
       headers: {
         'Authorization': `Bearer ${process.env.REACT_APP_PEXELS_API_KEY}`

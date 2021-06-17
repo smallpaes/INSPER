@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import CustomColumns from '../custom-columns/custom-columns.components';
 import ImageCard from '../image-card/image-card.component';
+
+import useIntersectionObserver from '../../effects/use-intersection-observer.effect';
 
 import {
   TrendingContainer,
@@ -10,10 +12,25 @@ import {
 
 const Trending = () => {
   const [images, setImages] = useState([])
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(0);
+  const observedTargetRef = useRef(null);
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0
+  };
+
+  const isIntersecting = useIntersectionObserver(observedTargetRef, observerOptions);
 
   useEffect(() => {
-    fetch('https://api.pexels.com/v1/curated?page=1&per_page=6', {
+    if (!isIntersecting) return;
+    setPage(prevPage => prevPage + 1);
+  }, [isIntersecting]);
+
+  useEffect(() => {
+    if (page === 0) return;
+    fetch(`https://api.pexels.com/v1/curated?page=${page}&per_page=15`, {
       method: 'Get',
       headers: {
         'Authorization': `Bearer ${process.env.REACT_APP_PEXELS_API_KEY}`
@@ -21,11 +38,10 @@ const Trending = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
-        setImages(data.photos)
-      })
-  }, [])
-  
+        setImages(prevImages => [...prevImages, ...data.photos]);
+      });
+  }, [page]);
+
   return (
     <TrendingContainer>
       <TitleContainer>Trending</TitleContainer>
@@ -43,6 +59,7 @@ const Trending = () => {
           ))
         }
       </CustomColumns>
+      <div className="observer" style={{ 'height': '300px' }} ref={observedTargetRef} />
     </TrendingContainer>
   );
 };
