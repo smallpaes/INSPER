@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+
+import { selectTrendImages } from '../../redux/trend/trend.selectors';
 
 import CustomColumns from '../custom-columns/custom-columns.components';
 import ImageCard from '../image-card/image-card.component';
@@ -10,27 +13,13 @@ import {
 } from './trending.styles';
 
 const Trending = () => {
-  const [images, setImages] = useState([])
   const [page, setPage] = useState(0);
+  const images = useSelector(selectTrendImages);
 
   // Observer relies on reference equality to prevent unnecessary renders
   const onIntersecting = useCallback(() => {
     setPage(page => page + 1);
   }, []);
-
-  useEffect(() => {
-    if (page === 0) return;
-    fetch(`https://api.pexels.com/v1/curated?page=${page}&per_page=15`, {
-      method: 'Get',
-      headers: {
-        'Authorization': `Bearer ${process.env.REACT_APP_PEXELS_API_KEY}`
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        setImages(prevImages => [...prevImages, ...data.photos]);
-      });
-  }, [page]);
 
   return (
     <TrendingContainer>
