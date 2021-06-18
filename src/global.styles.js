@@ -41,6 +41,7 @@ export const GlobalStyle = createGlobalStyle`
     --theme-border-radius-small: 2px;
     --theme-border-radius-large: 10px;
     --theme-border-radius-x-large: 14px;
+    --theme-border-radius-circle: 50%;
 
     // header
     --header-height: 50px;
