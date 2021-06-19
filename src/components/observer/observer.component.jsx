@@ -18,7 +18,6 @@ const Observer = ({
   const isIntersecting = useIntersectionObserver(observedTargetRef, observerOptions);
 
   useEffect(() => {
-    console.log(isIntersecting)
     if (!isIntersecting) return;
     onIntersecting();
   }, [isIntersecting, onIntersecting]);
