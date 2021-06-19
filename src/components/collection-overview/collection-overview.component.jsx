@@ -8,7 +8,7 @@ import Skeleton from '../skeleton/Skeleton.component';
 import {
   CollectionContainer,
   TitleContainer
-} from './collection.styles';
+} from './collection-overview.styles';
 
 const Collection = () => {
   const [images, setImages] = useState([])
