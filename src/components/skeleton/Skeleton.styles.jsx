@@ -70,7 +70,7 @@ const getSkeletonTypeStyles = ({ type }) => {
     case 'circle':
     default:
       return circleStyles;
-  };
+  }
 };
 
 const getAnimationStyles = ({ animation }) => {
@@ -81,7 +81,7 @@ const getAnimationStyles = ({ animation }) => {
     case 'wave':
     default:
       return waveStyles;
-  };
+  }
 };
 
 export const SkeletonContainer = styled.div`

@@ -22,7 +22,7 @@ const SearchBanner = () => {
         loop
         muted
         src={VIDEO_SRC}
-        speed='0.5'
+        speed={0.5}
         poster={paintPoster}
       />
       <TitleContainer>

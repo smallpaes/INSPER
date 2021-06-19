@@ -23,7 +23,7 @@ export function* fetchTrendAsync({ payload }) {
   } catch (error) {
     yield put(fetchTrendFailure(error));
   }
-};
+}
 
 
 export function* onFetchTrendStart() {
@@ -31,7 +31,7 @@ export function* onFetchTrendStart() {
     'FETCH_TREND_START',
     fetchTrendAsync
   );
-};
+}
 
 export function* trendSagas() {
   yield all([

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { VideoContainer } from './video.styles';
 
@@ -6,7 +7,7 @@ import { VideoContainer } from './video.styles';
 const Video = ({ 
   src,
   poster,
-  speed = 1,
+  speed,
   ...props 
 }) => {
   const videoEl = useRef(null);
@@ -31,6 +32,16 @@ const Video = ({
       onCanPlay={handleOnCanPlay}
     />
   );
+};
+
+Video.propTypes = {
+  src: PropTypes.string.isRequired,
+  poster: PropTypes.string,
+  speed: PropTypes.number
+};
+
+Video.defaultProps = {
+  speed: 1
 };
 
 export default Video;
