@@ -6,6 +6,7 @@ import { selectTrendImages, selectIsFetching } from '../../redux/trend/trend.sel
 import CustomColumns from '../custom-columns/custom-columns.components';
 import ImageCard from '../image-card/image-card.component';
 import Observer from '../observer/observer-component';
+import Spinner from '../spinner/spinner.component';
 
 import { fetchTrendStart } from '../../redux/trend/trend.actions';
 
@@ -50,7 +51,9 @@ const Trending = () => {
       <Observer
         rootMargin='400px'
         onIntersecting={onIntersecting}
-      >Loading</Observer>
+      >
+        { isFetching && <Spinner /> }
+      </Observer>
     </TrendingContainer>
   );
 };
