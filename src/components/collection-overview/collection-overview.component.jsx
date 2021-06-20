@@ -1,40 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import CustomColumns from '../custom-columns/custom-columns.components';
 import ImageCard from '../image-card/image-card.component';
 import CustomButton from '../custom-button/custom-button.component';
 import Skeleton from '../skeleton/Skeleton.component';
 
+import useFetch from '../../effects/use-fetch.effect';
+
 import {
   CollectionContainer,
   TitleContainer
 } from './collection-overview.styles';
 
-const Collection = () => {
-  const [images, setImages] = useState([])
-  const [isLoading, setIsLoading] = useState(false);
+const Collection = ({ queries }) => {
 
-  useEffect(() => {  
-    setIsLoading(true);
-    fetch('https://api.pexels.com/v1/search?query=nature&per_page=6', {
-      method: 'Get',
-      headers: {
-        'Authorization': `Bearer ${process.env.REACT_APP_PEXELS_API_KEY}`
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        setImages(data.photos)
-        setIsLoading(false);
-      })
-  }, [])
+  const { 
+    data, 
+    isLoading
+  } = useFetch(process.env.REACT_APP_PEXELS_SEARCH_URL, queries);
 
   return (
     <CollectionContainer>
       <TitleContainer>Nature</TitleContainer>
       <CustomColumns isGrid>
         {
-          (isLoading ? Array.from(new Array(6)) : images).map((image, index) => (
+          (isLoading || !data ? Array.from(new Array(6)) : data.photos).map((image, index) => (
             image ? (
               <ImageCard
                 className='column'
@@ -60,6 +51,18 @@ const Collection = () => {
       </CustomButton>
     </CollectionContainer>
   );
+};
+
+Collection.propTypes = {
+  queries: PropTypes.shape({
+    query: PropTypes.string.isRequired,
+    per_page: PropTypes.number,
+    orientation: PropTypes.string,
+    size: PropTypes.string,
+    color: PropTypes.string,
+    locale: PropTypes.string,
+    page: PropTypes.number
+  })
 };
 
 export default Collection;
