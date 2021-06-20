@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import CustomColumns from '../custom-columns/custom-columns.components';
@@ -13,16 +13,19 @@ import {
   TitleContainer
 } from './collection-overview.styles';
 
-const Collection = ({ queries }) => {
-
+const Collection = ({ 
+  queries, 
+  title
+}) => {
+  const queriesRef = useRef(queries);
   const { 
     data, 
     isLoading
-  } = useFetch(process.env.REACT_APP_PEXELS_SEARCH_URL, queries);
+  } = useFetch(process.env.REACT_APP_PEXELS_SEARCH_URL, queriesRef.current);
 
   return (
     <CollectionContainer>
-      <TitleContainer>Nature</TitleContainer>
+      <TitleContainer>{title}</TitleContainer>
       <CustomColumns isGrid>
         {
           (isLoading || !data ? Array.from(new Array(6)) : data.photos).map((image, index) => (
@@ -62,7 +65,8 @@ Collection.propTypes = {
     color: PropTypes.string,
     locale: PropTypes.string,
     page: PropTypes.number
-  })
+  }),
+  title: PropTypes.string.isRequired
 };
 
 export default Collection;
