@@ -7,15 +7,19 @@ import Trending from '../../components/trending/trending.component';
 import { CollectionsContainer } from './homepage.styles';
 
 const Homepage = () => {
-  const IMAGE_PER_COLLECTION = 6
+  const COLLECTION_BASE_QUERY = {
+    per_page: 6,
+    orientation: 'landscape'
+  };
+
   return (
     <div className="homepage">
       <SearchBanner />
       <CollectionsContainer>
         <CollectionOverview
           queries={{
-            query: 'nature',
-            per_page: IMAGE_PER_COLLECTION
+            ...COLLECTION_BASE_QUERY,
+            query: 'nature'
           }}
         />
         <Trending />
