@@ -1,20 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
 
-const useFetch = (url, query) => {
+const useFetch = (url, page, query) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const urlRef = useRef(url);
+  const urlRef = useRef();
 
   useEffect(() => {  
-    setIsLoading(true);
-    urlRef.current = url;
+    if (!url || page === 0) return;
+
+    const fullUrl = `${url}${(page || query) && '?'}${page && ('page=' + page)}${query && ('&' + query)}`;
+    if (fullUrl === urlRef.current) return;
+    urlRef.current = fullUrl;
 
     const fetchData = async () => {
-      if (query) {
-        const searchParams = new URLSearchParams(query);
-        urlRef.current += `?${searchParams}`;
-      }
-      
+      setIsLoading(true);
       const res = await fetch(urlRef.current, {
         method: 'GET',
         headers: {
@@ -27,7 +26,7 @@ const useFetch = (url, query) => {
     };
 
     fetchData();
-  }, [url, query])
+  }, [url, page, query])
 
   return { data, isLoading };
 };

@@ -18,10 +18,11 @@ const Collection = ({
   title
 }) => {
   const queriesRef = useRef(queries);
+  const searchParams = new URLSearchParams(queriesRef.current);
   const { 
     data, 
     isLoading
-  } = useFetch(process.env.REACT_APP_PEXELS_SEARCH_URL, queriesRef.current);
+  } = useFetch(process.env.REACT_APP_PEXELS_SEARCH_URL, 1, searchParams);
 
   return (
     <CollectionContainer>
