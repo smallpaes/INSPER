@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import CustomColumns from '../custom-columns/custom-columns.components';
 import ImageCard from '../image-card/image-card.component';
@@ -50,7 +51,11 @@ const Collection = ({
           ))
         }
       </CustomColumns>
-      <CustomButton isOutlineButton>
+      <CustomButton 
+        as={Link}
+        $isOutlineButton
+        to={`/collection/${title}`}
+      >
         Find Out More
       </CustomButton>
     </CollectionContainer>

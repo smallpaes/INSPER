@@ -2,11 +2,14 @@ import styled from 'styled-components';
 
 export const CollectionContainer = styled.section`
   margin-top: 2rem;
-  div { margin-bottom: .5rem; }
-  button { margin: 0 auto; }
+  .column { margin-bottom: .5rem; }
+  a { 
+    margin: 0 auto;
+    width: 50%;
+  }
 
   @media screen and (min-width: 768px) {
-    button { min-width: 360px; }
+    a { width: 360px; }
   }
 `;
 

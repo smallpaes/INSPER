@@ -25,8 +25,8 @@ const outlineStyles = css`
 `;
 
 const getButtonStyles = props => {
-  if (props.isPureButton) return pureStyles;
-  if (props.isOutlineButton) return outlineStyles;
+  if (props.isPureButton || props.$isPureButton) return pureStyles;
+  if (props.isOutlineButton || props.$isOutlineButton) return outlineStyles;
 };
 
 export const CustomButtonContainer = styled.button`
