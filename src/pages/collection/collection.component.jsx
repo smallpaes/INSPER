@@ -34,6 +34,7 @@ const Collection = () => {
 
   useEffect(() => {
     setPage(0);
+    setImages([]);
     setQueryConfig(queryConfig => ({ ...queryConfig, query }));
   }, [query]);
 
