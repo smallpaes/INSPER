@@ -66,11 +66,13 @@ export const NavContainer = styled.nav`
     grid-auto-flow: column;
     grid-gap: 20px;
     
-    a { 
+    a, button { 
       padding: 0;
       border-bottom: none;
       color: var(--theme-color-dark-500);
       font-size: var(--theme-font-size-small);
+      letter-spacing: unset;
+      font-weight: bold;
     }
   }
 `;

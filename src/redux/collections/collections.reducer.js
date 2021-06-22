@@ -11,6 +11,11 @@ const collectionsReducer = (state = INITIAL_STATE, action) => {
         ...state,
         collections: addCollection(state.collections, action.payload)
       }
+    case 'REMOVE_ITEM':
+      return {
+        ...state,
+        collections: state.collections.filter(collection => collection !== action.payload)
+      }
     default:
       return state;
   }

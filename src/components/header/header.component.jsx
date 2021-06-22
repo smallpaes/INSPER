@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 import Icon from '../icon/icon.component';
+import CartDropdown from '../collections-dropdown/collections-dropdown.component';
+import CustomButton from '../custom-button/custom-button.component';
 
 import {
   HeaderContainer,
@@ -12,8 +14,10 @@ import {
 
 const Header = () => {
   const [isNavHidden, setIsNavHidden] = useState(true);
+  const [isCollectionsHidden, setIsCollectionsHidden] = useState(true);
 
   const toggleNavDropdown = () => setIsNavHidden(!isNavHidden);
+  const toggleCollectionsDropdown = () => setIsCollectionsHidden(!isCollectionsHidden);
 
   return (
     <HeaderContainer>
@@ -39,11 +43,20 @@ const Header = () => {
         />
       </NavIconsContainer>
       <NavContainer isHidden={isNavHidden}>
-        <a href="/">Preference</a>
         <a href="/">Favorite</a>
         <a href="/">About</a>
         <a href="/">Login/Signup</a>
+        <CustomButton
+          isPureButton
+          onClick={toggleCollectionsDropdown}
+        >
+          Collection
+        </CustomButton>
       </NavContainer>
+      <CartDropdown 
+        isHidden={isCollectionsHidden}
+        toggleDropdown={toggleCollectionsDropdown}
+      />
     </HeaderContainer>
   );
 };
