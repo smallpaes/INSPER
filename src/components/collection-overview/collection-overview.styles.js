@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 export const CollectionContainer = styled.section`
   margin-top: 2rem;
-  .column { margin-bottom: .5rem; }
   a { 
-    margin: 0 auto;
+    margin: 1rem auto 0 auto;
     width: 50%;
   }
 
