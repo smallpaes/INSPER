@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ReactComponent as Add } from '../../assets/icons/add.svg';
+import Icon from '../icon/icon.component';
 
 export const BannerContainer = styled.div`
   position: relative;
@@ -66,9 +66,11 @@ export const InputContainer = styled.input`
   }
 `;
 
-export const AddIcon = styled(Add)`
+export const AddIcon = styled(Icon).attrs({
+  name: 'add',
+  fill: 'var(--theme-color-dark-200)'
+})`
   width: 100%;
   height: auto;
-  fill: var(--theme-color-dark-200);
   cursor: pointer;
 `;

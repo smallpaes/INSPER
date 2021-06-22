@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as Logo } from '../../assets/icons/lightbulb.svg';
-
 export const HeaderContainer = styled.header`
   position: relative;
   height: var(--header-height);
@@ -20,10 +18,6 @@ export const LogoContainer = styled(Link)`
   user-select: none;
 `;
 
-export const LogoIcon = styled(Logo)`
-  width: 25px;
-`;
-
 export const LogoTitleContainer = styled.h3`
   margin-left: 5px;
   color: var(--theme-color-dark-900);
@@ -38,9 +32,6 @@ export const NavIconsContainer = styled.nav`
   align-items: center;
 
   svg {
-    width: 100%;
-    height: 100%;
-    fill: var(--theme-color-black-500);
     cursor: pointer;
   }
 

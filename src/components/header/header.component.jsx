@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 
-import { ReactComponent as Hamburger } from '../../assets/icons/hamburger.svg';
-import { ReactComponent as Images } from '../../assets/icons/images.svg';
+import Icon from '../icon/icon.component';
 
 import {
   HeaderContainer,
   LogoContainer,
-  LogoIcon,
   LogoTitleContainer,
   NavIconsContainer,
   NavContainer
@@ -20,14 +18,25 @@ const Header = () => {
   return (
     <HeaderContainer>
       <LogoContainer to='/'>
-        <LogoIcon />
+        <Icon 
+          name='lightbulb' 
+          size={25}
+        />
         <LogoTitleContainer>
           INSPER
         </LogoTitleContainer>
       </LogoContainer>
       <NavIconsContainer>
-        <Images />
-        <Hamburger onClick={toggleNavDropdown} />
+        {/* <Images /> */}
+        <Icon 
+          name='images' 
+          size={25}
+        />
+        <Icon 
+          name='hamburger' 
+          size={25}
+          onClick={toggleNavDropdown}
+        />
       </NavIconsContainer>
       <NavContainer isHidden={isNavHidden}>
         <a href="/">Preference</a>

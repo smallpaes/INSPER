@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Icon from '../icon/icon.component';
+
 import { 
   CardContainer,
   DetailContainer,
   ImageContainer,
   InfoContainer,
-  AvatarContainer,
   DescriptionContainer,
   ActionsContainer,
   HeartContainer,
@@ -38,7 +39,10 @@ const ImageCard = ({
         to={{ pathname: photographerUrl }} 
         target="_blank"
       >
-        <AvatarContainer />
+        <Icon 
+          name='bear' 
+          size={33}
+        />
         <DescriptionContainer>
           Photo By {photographer} on Pexels
         </DescriptionContainer>

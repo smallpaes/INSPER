@@ -1,10 +1,7 @@
 import styled, { css } from 'styled-components';
-
-import { ReactComponent as Bear } from '../../assets/icons/bear.svg';
-import { ReactComponent as Heart } from '../../assets/icons/heart.svg';
-import { ReactComponent as Download } from '../../assets/icons/download.svg';
-
 import { Link } from 'react-router-dom';
+
+import Icon from '../icon/icon.component';
 
 export const CardContainer = styled.div`
   position: relative;
@@ -49,11 +46,6 @@ export const InfoContainer = styled(Link)`
   align-items: center;
 `;
 
-export const AvatarContainer = styled(Bear)`
-  width: 33px;
-  height: auto;
-`;
-
 export const DescriptionContainer = styled.p`
   color: var(--theme-color-white);
   font-size: var(--theme-font-size-x-small);
@@ -74,11 +66,15 @@ const ActionIconStyles = css`
   cursor: pointer;
 `;
 
-export const HeartContainer = styled(Heart)`
+export const HeartContainer = styled(Icon).attrs({
+  name: 'heart'
+})`
   &:hover { fill: red; }
   ${ActionIconStyles}
 `;
 
-export const DownloadContainer = styled(Download)`
+export const DownloadContainer = styled(Icon).attrs({
+  name: 'download'
+})`
   ${ActionIconStyles}
 `;
